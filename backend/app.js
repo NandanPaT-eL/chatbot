@@ -9,4 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const connectDB = require("./config/db");
+require("./config/s3");
+
+connectDB();
+
+const facultyRoutes = require("./routes/faculty.route");
+app.use("/api/faculty", facultyRoutes);
+
 module.exports = app;

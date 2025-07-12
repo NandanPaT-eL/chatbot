@@ -28,3 +28,9 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: Project overview with follow-up
+  steps:
+    - intent: ask_projects
+    - action: utter_projects
+    - action: utter_followup

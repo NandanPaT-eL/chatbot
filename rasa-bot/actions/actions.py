@@ -1,27 +1,26 @@
-# This files contains your custom actions which can be used to run
-# custom Python code.
-#
-# See this guide on how to implement these action:
-# https://rasa.com/docs/rasa/custom-actions
+import google.generativeai as genai
+from rasa_sdk import Action, Tracker
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
 
+# Initialize Gemini
+genai.configure(api_key="AIzaSyCJ9wRVDSyJ46kmc_swxlYj-JmHTBEs8Q0")
 
-# This is a simple example for a custom action which utters "Hello World!"
+class ActionHandleUnknownQuestion(Action):
+    def name(self) -> str:
+        return "action_handle_unknown_question"
 
-# from typing import Any, Text, Dict, List
-#
-# from rasa_sdk import Action, Tracker
-# from rasa_sdk.executor import CollectingDispatcher
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
+    async def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: DomainDict):
+
+        user_question = tracker.latest_message.get("text")
+        try:
+            model = genai.GenerativeModel("gemini-1.5-flash")
+            response = model.generate_content(user_question)
+            answer = response.text
+        except Exception as e:
+            answer = "Sorry, I'm having trouble finding an answer to that right now."
+
+        dispatcher.utter_message(text=answer)
+        return []

@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import elecon from "../assets/elecon.png";
 import fsm from "../assets/fsm.png";
+import ChatbotButton from "../components/ChatbotButton";
 
 const Partners = () => {
   return (
@@ -41,6 +42,7 @@ const Partners = () => {
             <img src={fsm} alt="FSM Logo" className="h-28 w-auto object-contain" />
           </div>
         </div>
+        <ChatbotButton />
       </div>
 
       <Footer />

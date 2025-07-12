@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import amrImg from "../assets/amr.png";
 import asrsImg from "../assets/asrs.png";
+import ChatbotButton from "../components/ChatbotButton";
 
 const Projects = () => {
   return (
@@ -62,6 +63,7 @@ const Projects = () => {
             />
           </div>
         </div>
+        <ChatbotButton />
       </div>
 
       {/* Footer */}

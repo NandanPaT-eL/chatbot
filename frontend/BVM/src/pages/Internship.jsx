@@ -2,10 +2,10 @@ import React from "react";
 import internshipPoster from "../assets/internship.jpeg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ChatbotButton from "../components/ChatbotButton";
 
 const Internship = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
   return (
     <div className="font-serif text-[#000] bg-white">
       {/* Navigation Bar */}
@@ -107,6 +107,7 @@ const Internship = () => {
             className="w-full rounded shadow"
           />
         </div>
+        <ChatbotButton />
       </div>
 
       {/* Footer */}

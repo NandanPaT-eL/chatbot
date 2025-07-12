@@ -4,6 +4,7 @@ import elecon from "../assets/elecon.png";
 import fsm from "../assets/fsm.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ChatbotButton from "../components/ChatbotButton";
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -134,6 +135,7 @@ const Home = () => {
               alt="IIT Delhi FSM"
               className="h-20 border border-gray-300 p-2"
             />
+            <ChatbotButton />
           </div>
         </section>
       </div>

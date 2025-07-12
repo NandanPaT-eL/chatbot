@@ -22,7 +22,48 @@ rules:
     - intent: ask_asrs
     - action: utter_asrs
 
-- rule: Respond to general project inquiry
+- rule: Respond to general questions
   steps:
-    - intent: ask_projects
-    - action: utter_projects
+    - intent: ask_question
+    - action: utter_ask_question
+- rule: Answer innovation and research queries
+  steps:
+    - intent: ask_innovation_research
+    - action: utter_innovation_research
+
+- rule: Answer education and skills development queries
+  steps:
+    - intent: ask_education_skills
+    - action: utter_education_skills
+
+- rule: Answer technology transfer queries
+  steps:
+    - intent: ask_tech_transfer
+    - action: utter_tech_transfer
+
+- rule: Answer sustainable manufacturing queries
+  steps:
+    - intent: ask_sustainable_mfg
+    - action: utter_sustainable_mfg
+
+- rule: Respond to patron inquiry
+  steps:
+    - intent: ask_patron
+    - action: utter_patron
+
+- rule: Answer internship-related queries
+  steps:
+    - intent: ask_internship
+    - action: utter_internship
+
+- rule: Respond to partner inquiries
+  steps:
+    - intent: ask_partners
+    - action: utter_partners
+
+- rule: Fallback to GPT for unknown queries
+  steps:
+    - intent: nlu_fallback
+    - action: action_handle_unknown_question
+
+

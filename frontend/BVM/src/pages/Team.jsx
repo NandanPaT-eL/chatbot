@@ -1,4 +1,5 @@
 import React from "react";
+import ChatbotButton from "../components/ChatbotButton";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import indrajit from "../assets/team/indrajit.jpg";
@@ -150,6 +151,7 @@ const Team = () => {
             </div>
           ))}
         </div>
+        <ChatbotButton />
       </div>
 
       <Footer />

@@ -1,6 +1,7 @@
 version: "3.1"
 
 nlu:
+
 - intent: greet
   examples: |
     - hey
@@ -29,6 +30,16 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - I take your leave
+    - I must go now
+    - I will take your leave
+    - I have to go
+    - I am heading out
+    - I should leave now
+    - I am logging off
+    - I am leaving
+    - talk to you later
+    - catch you later
 
 - intent: affirm
   examples: |
@@ -38,6 +49,9 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - absolutely
+    - yeah
+    - sure
 
 - intent: deny
   examples: |
@@ -48,6 +62,7 @@ nlu:
     - don't like that
     - no way
     - not really
+    - nope
 
 - intent: mood_great
   examples: |
@@ -79,7 +94,7 @@ nlu:
     - unhappy
     - not good
     - not very good
-    - extremly sad
+    - extremely sad
     - so saad
     - so sad
 
@@ -89,6 +104,8 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - who made you?
+    - are you real?
 
 - intent: ask_amr
   examples: |
@@ -97,6 +114,9 @@ nlu:
     - Explain the autonomous mobile robot project
     - Describe AMR
     - What are AMRs?
+    - What kind of robots are you developing?
+    - Give me details about the AMR system
+    - How does the mobile robot navigate?
 
 - intent: ask_asrs
   examples: |
@@ -105,12 +125,102 @@ nlu:
     - Describe the ASRS project
     - Explain automated storage and retrieval systems
     - What does ASRS do?
+    - What technology does ASRS use?
+    - How does the ASRS system work?
+    - Tell me about your warehouse automation solution
 
 - intent: ask_projects
   examples: |
     - What are the projects your company is working on?
     - Tell me about your ongoing programs
     - What are your research areas?
-    - What technologies are you working with?
     - Can you list your current projects?
     - What initiatives are you involved in?
+    - Give me an overview of your projects
+    - What are the key projects at your lab?
+    - Can you list all the active projects?
+    - What is the focus of your lab?
+    - What is your lab currently building?
+
+- intent: ask_question
+  examples: |
+    - I want to ask something
+    - Can I ask a question?
+    - May I ask you?
+    - I have a question
+    - Let me ask something
+    - Can I ask you something?
+    - I have a doubt
+    - I want to know more
+    - I need some clarification
+    - I want to discuss something
+
+- intent: ask_innovation_research
+  examples: |
+    - What kind of innovations are being developed in your lab?
+    - How does your lab contribute to smart manufacturing research?
+    - Are you focused on any advanced research areas?
+    - What research projects are ongoing in digital manufacturing?
+    - How are you pushing innovation in Industry 4.0?
+
+- intent: ask_education_skills
+  examples: |
+    - Do you offer training or workshops for students?
+    - How do you help students build Industry 4.0 skills?
+    - Are there learning opportunities available?
+    - What kind of educational programs do you run?
+    - Is there any skill-building initiative in your lab?
+
+- intent: ask_tech_transfer
+  examples: |
+    - How do you implement lab research into real factories?
+    - Is your work used in actual production environments?
+    - Do you provide solutions to manufacturing industries?
+    - How do technologies developed here reach industries?
+    - Do you support commercial deployment?
+
+- intent: ask_sustainable_mfg
+  examples: |
+    - Are you working on green or sustainable technologies?
+    - How do you reduce environmental impact in manufacturing?
+    - What is your lab approach to sustainability?
+    - Do you promote eco-friendly manufacturing practices?
+    - Are there any initiatives on recycling or resource efficiency?
+
+- intent: ask_patron
+  examples: |
+    - Who is your patron?
+    - Tell me about your patron
+    - Who supports this lab?
+    - Who is Mr. Pratik Patel?
+    - Who is the chairman of Jash Engineering?
+    - Can you tell me about Pratik Patel?
+    - Who is backing the center?
+    - Give info about your managing director
+
+- intent: ask_internship
+  examples: |
+    - Tell me about the internship
+    - What internships do you offer?
+    - Is there any internship available at your lab?
+    - What are the eligibility criteria for the internship?
+    - What are the internship domains?
+    - How do I register for the internship?
+    - When does the internship start?
+    - Where can I apply for the internship?
+    - Do I get a certificate for the internship?
+    - What is the internship duration?
+    - What is the deposit for internship?
+    - Who can I contact for internship details?
+    
+- intent: ask_partners
+  examples: |
+    - Who are your industrial partners?
+    - Do you have any industry partners?
+    - Who is associated with your lab?
+    - What is FSM?
+    - Tell me about FSM IIT Delhi
+    - Who are the contributors to your lab?
+
+  
+

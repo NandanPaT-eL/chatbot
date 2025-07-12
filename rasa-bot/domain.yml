@@ -1,5 +1,8 @@
 version: "3.1"
 
+actions:
+  - action_handle_unknown_question
+
 intents:
   - greet
   - goodbye
@@ -11,33 +14,44 @@ intents:
   - ask_amr
   - ask_asrs
   - ask_projects
+  - ask_question
+  - ask_innovation_research
+  - ask_education_skills
+  - ask_industry_collab
+  - ask_tech_transfer
+  - ask_sustainable_mfg
+  - ask_patron
+  - ask_internship
+  - ask_partners
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+    - text: "Hey! Welcome to the Center of Excellence in Digital Manufacturing Laboratory at Birla Vishvakarma Mahavidyalaya!"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Here is something to cheer you up:"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: "Did that help you?"
 
   utter_happy:
-  - text: "Great, carry on!"
+    - text: "Great, carry on!"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye, have a nice day"
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
   utter_amr:
     - text: |
         **Autonomous Mobile Robots (AMRs)** have revolutionized digital manufacturing. Equipped with advanced sensors, navigation, and decision-making systems, they autonomously navigate environments, interact with machines, and perform tasks without human intervention.
+
   utter_asrs:
     - text: |
         **Automated Storage and Retrieval Systems (AS/RS)** automate warehouse operations using robotics, conveyors, and software. They optimize inventory management and maximize efficiency in storage and distribution.
+
   utter_projects:
     - text: |
         We are working on several advanced projects, including:
@@ -45,7 +59,78 @@ responses:
         - **Automated Storage and Retrieval System (AS/RS)**
 
         You can ask me about any of these to learn more.
-        
+
+  utter_followup:
+    - text: "Would you like to know more about any specific project?"
+
+  utter_ask_question:
+    - text: "Of course! I'm here to help. What's your question?"
+  
+  utter_innovation_research:
+    - text: >
+        Our lab focuses on exploring new concepts in automation, AI, and digital systems to advance smart manufacturing. We work on developing real-world solutions through experimentation and research.
+
+  utter_education_skills:
+    - text: >
+        We offer hands-on training sessions, workshops, and guided projects to help students and professionals gain the necessary skills for Industry 4.0 technologies.
+
+  utter_tech_transfer:
+    - text: >
+        Our lab facilitates the adoption of new technologies by guiding their integration into existing manufacturing workflows, bridging the gap between research and implementation.
+
+  utter_sustainable_mfg:
+    - text: >
+        Sustainability is central to our mission. We design and promote smart systems that minimize waste, optimize energy use, and support environmentally conscious manufacturing practices.
+  utter_patron:
+    - text: >
+        Mr. Pratik Patel is the Chairman and Managing Director of Jash Engineering Ltd., and a key patron of our lab. With a background in Production Engineering and an MBA in Finance, he brings over 32 years of leadership experience. His vision and global business acumen have guided the company's international growth, and his support plays a vital role in shaping the lab’s mission and direction.
+
+  utter_internship:
+    - text: >
+        Birla Vishvakarma Mahavidyalaya (BVM), in collaboration with IIT Delhi - AIA Foundation for Smart Manufacturing, is offering a 2-month mixed-mode internship (minimum 4 weeks on-site).
+
+        **Facilities:**
+        - One-to-One Mentorship
+        - 3D Printers / Scanner
+        - Smart Manufacturing Kit Access
+        - IoT Hardware and Software
+
+        **Domains:**
+        - Robotics
+        - Industrial IoT
+        - Extended Reality
+        - Digital Twin
+
+        **Stages:**
+        1. Registration  
+        2. Short Listing  
+        3. Level 1 Learning  
+        4. Level 2 Technology Stream Learning  
+        5. Final Selection  
+        6. Project Allocation  
+        7. Internship Commencement
+
+        **Last Date to Register:** 16/05/2025  
+        **Start Date:** 20/05/2025  
+        **Deposit:** ₹2000/- (refundable after completion)  
+        **Certificate:** Provided upon successful completion  
+        **Eligibility:** 3rd & 4th year students with a minimum CGPA of 7.0  
+
+        For queries, contact: sm@bvmengineering.ac.in
+
+  utter_partners:
+    - text: >
+        Our lab actively collaborates with leading industrial and academic partners:
+
+        **Elecon Engineering**  
+        Established in 1951 by Late Shri Ishwarbhai B. Patel, Elecon began by producing conveyor systems and evolved into a major player in Material Handling Equipment EPC projects. It is Asia’s largest industrial gearbox manufacturer with a global footprint across Asia, Middle East, USA, UK, Europe, and Africa.
+
+        **Foundation for Smart Manufacturing (FSM), AIA - IIT Delhi**  
+        FSM supports the adoption and education of Smart Manufacturing in India. It enables industries to experiment and learn using real hardware, live lectures, and self-paced exercises, fostering a robust Industry 4.0 learning ecosystem.
+
+        **Akaaish Mech**  
+        A strategic partner supporting innovation and hardware-driven solutions for smart manufacturing applications.
+  
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
