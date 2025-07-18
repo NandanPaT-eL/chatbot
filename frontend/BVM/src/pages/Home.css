@@ -1,0 +1,181 @@
+/* Global font & base settings */
+body, .font-serif {
+  font-family: 'Georgia', serif;
+
+  scroll-behavior: smooth;
+}
+
+/* Section Headings */
+h1, h2, h3 {
+  color: #154360;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* Border accents under headings */
+.border-b {
+  border-bottom: 2px solid #154360 !important;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Hero Section */
+section.text-center h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.8px;
+}
+
+section.text-center p {
+  color: #444;
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Objective Cards */
+.objective-card {
+  background-color: #fbe3c6;
+  border-left: 5px solid #154360;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(21, 67, 96, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.objective-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(21, 67, 96, 0.2);
+}
+
+/* Patron Section */
+.patron-section {
+  background: linear-gradient(145deg, #0e3d45, #11535c);
+  color: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.patron-section:hover {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.patron-section h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.patron-section p {
+  color: #d1e3e5;
+}
+
+/* About Section */
+.bvm-section {
+  background-color: #fdf2e3;
+  border: 1px solid #154360;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(21, 67, 96, 0.1);
+}
+
+.bvm-section p {
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* Underlined subheadings */
+.underline-heading,
+h3.underline {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  font-weight: 600;
+  color: #154360;
+}
+
+/* Partner logos */
+img.h-20 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0.5rem;
+  background-color: white;
+  padding: 0.25rem;
+  height: 80px;
+  max-width: 180px;
+}
+
+img.h-20:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Tabs Header */
+.tabs-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-bottom: 2px solid #154360;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  color: #154360;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+/* Quick Link Buttons */
+.quick-link-button {
+  background: linear-gradient(to right, #0f4c5c, #1a6a73);
+  color: white;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  display: block;
+  text-align: left;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.quick-link-button:hover {
+  background: linear-gradient(to right, #0e3d45, #144f57);
+  transform: translateX(6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .objective-card,
+  .bvm-section {
+    padding: 1.25rem;
+  }
+
+  .tabs-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .partner-logos {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .patron-section {
+    text-align: center;
+  }
+}
