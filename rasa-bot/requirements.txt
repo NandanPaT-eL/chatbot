@@ -1,0 +1,6 @@
+python-dotenv
+transformers
+torch
+langchain
+langchain-community
+pinecone-client
