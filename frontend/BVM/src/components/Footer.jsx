@@ -8,7 +8,7 @@ const Footer = () => {
       <img src={logo} alt="logo" className="h-12 w-auto mx-auto" />
       <div>© 2025 BVM CoE DM. All Rights Reserved.</div>
       <div className="flex justify-center gap-4">
-        <Link to="#" className="hover:underline">LinkedIn</Link>
+        <Link to="https://www.linkedin.com/company/iitdaiafsm/" className="hover:underline">LinkedIn</Link>
         <Link to="#" className="hover:underline">YouTube</Link>
       </div>
     </footer>

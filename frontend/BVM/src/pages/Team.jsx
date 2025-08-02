@@ -119,7 +119,7 @@ const teamResearch = [
 
 const Team = () => {
   return (
-    <div className="font-serif text-[#000] bg-white min-h-screen">
+    <div className="font-serif text-gray-900 bg-gradient-to-br from-white via-blue-50 to-white min-h-screen flex flex-col">
       <Navbar />
 
       <div className="max-w-6xl mx-auto px-6 py-16">

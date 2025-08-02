@@ -4,17 +4,13 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
+const studentRoutes = require("./routes/Internship.route");
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-const connectDB = require("./config/db");
-require("./config/s3");
-
-connectDB();
-
-const facultyRoutes = require("./routes/faculty.route");
-app.use("/api/faculty", facultyRoutes);
+app.use("/api/students", studentRoutes);
 
 module.exports = app;

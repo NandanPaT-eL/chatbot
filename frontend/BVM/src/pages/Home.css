@@ -1,7 +1,9 @@
+/* Import Work Sans from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap');
+
 /* Global font & base settings */
 body, .font-serif {
-  font-family: 'Georgia', serif;
-
+  font-family: 'Work Sans', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -13,15 +15,15 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 /* Border accents under headings */
@@ -46,7 +48,7 @@ section.text-center p {
 
 /* Objective Cards */
 .objective-card {
-  background-color: #fbe3c6;
+  background-color: linear-gradient(145deg, #0e3d45, #11535c);
   border-left: 5px solid #154360;
   padding: 1.5rem;
   border-radius: 0.75rem;
@@ -178,4 +180,23 @@ img.h-20:hover {
   .patron-section {
     text-align: center;
   }
+}
+
+.objective-card h3,
+.objective-card p {
+  color: white !important;
+}
+
+.patron-name h3,
+.patron-name p {
+  color: white !important;
+}
+
+.parthead h2 {
+  color: white !important;
+}
+
+.objective-section h1,
+.objective-section h3 {
+  color: white !important;
 }

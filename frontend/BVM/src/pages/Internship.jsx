@@ -7,7 +7,7 @@ import ChatbotButton from "../components/ChatbotButton";
 const Internship = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
-    <div className="font-serif text-[#000] bg-white">
+    <div className="font-serif text-gray-900 bg-gradient-to-br from-white via-blue-50 to-white min-h-screen flex flex-col">
       {/* Navigation Bar */}
       <Navbar></Navbar>
 
@@ -100,6 +100,164 @@ const Internship = () => {
           </p>
         </div>
 
+        {/* Selected Students - Internship 2023 */}
+        <div className="mt-12">
+          <h2 className="text-xl font-semibold mb-4 text-center">
+            Selected Students: Internship from December 2023 to May 2024
+          </h2>
+          <div className="overflow-x-auto rounded-lg border border-gray-300">
+            <table className="w-full text-sm text-center border-collapse">
+              <thead className="bg-blue-100 text-gray-800">
+                <tr>
+                  <th className="border px-3 py-2">Sr. No.</th>
+                  <th className="border px-3 py-2">Name</th>
+                  <th className="border px-3 py-2">College</th>
+                  <th className="border px-3 py-2">Domain</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white text-gray-700">
+                {[
+                  [
+                    "1",
+                    "Hitakshi Mavani",
+                    "Dr. Subhash Technical Campus",
+                    "Machine Learning",
+                  ],
+                  [
+                    "2",
+                    "Koria Nidhi J",
+                    "Dr. Subhash Technical Campus",
+                    "Machine Learning",
+                  ],
+                  [
+                    "3",
+                    "Kush Patel",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Machine Learning",
+                  ],
+                  [
+                    "4",
+                    "Yash Roghelia",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Robotics",
+                  ],
+                  [
+                    "5",
+                    "Daksh Mandera",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Robotics",
+                  ],
+                  [
+                    "6",
+                    "Priyal Desai",
+                    "Dharmsinh Desai University",
+                    "Robotics",
+                  ],
+                  ["7", "Vaibhav Vora", "GCET", "Industrial IoT"],
+                ].map(([sr, name, college, domain]) => (
+                  <tr key={sr} className="hover:bg-blue-50">
+                    <td className="border px-3 py-2">{sr}</td>
+                    <td className="border px-3 py-2">{name}</td>
+                    <td className="border px-3 py-2">{college}</td>
+                    <td className="border px-3 py-2">{domain}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">
+            *Swipe left/right on smaller screens to view full table
+          </p>
+        </div>
+
+        {/* Selected Students - Internship May to August 2024 */}
+        <div className="mt-12">
+          <h2 className="text-xl font-semibold mb-4 text-center">
+            Selected Students: Internship from May 2024 to August 2024
+          </h2>
+          <div className="overflow-x-auto rounded-lg border border-gray-300">
+            <table className="w-full text-sm text-center border-collapse">
+              <thead className="bg-blue-100 text-gray-800">
+                <tr>
+                  <th className="border px-3 py-2">Sr. No.</th>
+                  <th className="border px-3 py-2">Name</th>
+                  <th className="border px-3 py-2">College</th>
+                  <th className="border px-3 py-2">Domain</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white text-gray-700">
+                {[
+                  [
+                    "1",
+                    "Dushyant Singh Rathore",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Digital Twin",
+                  ],
+                  [
+                    "2",
+                    "Shoobham Parikh",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Digital Twin",
+                  ],
+                  [
+                    "3",
+                    "Aashutosh Premshankar Mishra",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Extended Reality",
+                  ],
+                  [
+                    "4",
+                    "Pratik Vipulkumar Prajapati",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Extended Reality",
+                  ],
+                  [
+                    "5",
+                    "Bhakti Patel",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Industrial IoT",
+                  ],
+                  [
+                    "6",
+                    "Aakriti",
+                    "Meerut Institute of Engineering and Technology",
+                    "Robotics",
+                  ],
+                  [
+                    "7",
+                    "Bhavya Jadav",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Robotics",
+                  ],
+                  [
+                    "8",
+                    "Rohit Gupta",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Robotics",
+                  ],
+                  [
+                    "9",
+                    "Dev P Bhatiya",
+                    "Birla Vishvakarma Mahavidyalaya",
+                    "Robotics",
+                  ],
+                ].map(([sr, name, college, domain]) => (
+                  <tr key={sr} className="hover:bg-blue-50">
+                    <td className="border px-3 py-2">{sr}</td>
+                    <td className="border px-3 py-2">{name}</td>
+                    <td className="border px-3 py-2">{college}</td>
+                    <td className="border px-3 py-2">{domain}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 mt-2 text-center sm:text-left">
+            *Swipe left/right on smaller screens to view full table
+          </p>
+        </div>
+
+        {/* Internship Poster */}
         <div className="mt-8">
           <img
             src={internshipPoster}

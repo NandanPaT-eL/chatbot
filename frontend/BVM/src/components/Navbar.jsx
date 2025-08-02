@@ -20,18 +20,79 @@ const Navbar = () => {
 
   return (
     <>
-      <nav style={{ backgroundColor: "#fff", boxShadow: "0 2px 4px rgba(0,0,0,0.1)", zIndex: 20 }} className="py-3 relative">
+      <nav
+        style={{
+          backgroundColor: "#fff",
+          boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+          zIndex: 20,
+        }}
+        className="py-3 relative"
+      >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-          <img src={logo} alt="logo" style={{ height: "48px", width: "auto" }} />
+          <img
+            src={logo}
+            alt="logo"
+            style={{ height: "48px", width: "auto" }}
+          />
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 text-sm md:text-base">
-            <Link to="/" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>HOME</Link>
-            <Link to="#" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>LAYOUT</Link>
-            <Link to="/internship" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>INTERNSHIPS</Link>
-            <Link to="/projects" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>PROJECTS</Link>
-            <Link to="/partners" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>PARTNERS</Link>
-            <Link to="/team" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>OUR TEAM</Link>
+            <Link
+              to="/"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              HOME
+            </Link>
+            <Link
+              to="#"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              LAYOUT
+            </Link>
+            <Link
+              to="/internship"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              INTERNSHIPS
+            </Link>
+            <Link
+              to="/projects"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              PROJECTS
+            </Link>
+            <Link
+              to="/partners"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              PARTNERS
+            </Link>
+            <Link
+              to="/team"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              OUR TEAM
+            </Link>
+            <Link
+              to="/login"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              ADMIN
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -40,20 +101,74 @@ const Navbar = () => {
             className="md:hidden"
             style={{ color: baseColor }}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu Items */}
       {isMenuOpen && (
-        <div style={{ backgroundColor: "#fff", borderTop: "1px solid #ccc", boxShadow: "0 2px 4px rgba(0,0,0,0.05)" }} className="md:hidden px-6 pt-4 pb-2 space-y-2 text-sm">
-          <Link to="/" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>HOME</Link>
-          <Link to="#" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>LAYOUT</Link>
-          <Link to="/internship" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>INTERNSHIPS</Link>
-          <Link to="/projects" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>PROJECTS</Link>
-          <Link to="/partners" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>PARTNERS</Link>
-          <Link to="/team" style={linkStyle} onMouseOver={e => e.target.style.color = hoverColor} onMouseOut={e => e.target.style.color = baseColor}>OUR TEAM</Link>
+        <div className="md:hidden flex flex-col px-6 pt-4 pb-4 space-y-2 text-sm bg-white border-t border-gray-300 shadow-md">
+          <Link
+            to="/"
+            style={linkStyle}
+            onMouseOver={(e) => (e.target.style.color = hoverColor)}
+            onMouseOut={(e) => (e.target.style.color = baseColor)}
+          >
+            HOME
+          </Link>
+          <Link
+            to="#"
+            style={linkStyle}
+            onMouseOver={(e) => (e.target.style.color = hoverColor)}
+            onMouseOut={(e) => (e.target.style.color = baseColor)}
+          >
+            LAYOUT
+          </Link>
+          <Link
+            to="/internship"
+            style={linkStyle}
+            onMouseOver={(e) => (e.target.style.color = hoverColor)}
+            onMouseOut={(e) => (e.target.style.color = baseColor)}
+          >
+            INTERNSHIPS
+          </Link>
+          <Link
+            to="/projects"
+            style={linkStyle}
+            onMouseOver={(e) => (e.target.style.color = hoverColor)}
+            onMouseOut={(e) => (e.target.style.color = baseColor)}
+          >
+            PROJECTS
+          </Link>
+          <Link
+            to="/partners"
+            style={linkStyle}
+            onMouseOver={(e) => (e.target.style.color = hoverColor)}
+            onMouseOut={(e) => (e.target.style.color = baseColor)}
+          >
+            PARTNERS
+          </Link>
+          <Link
+            to="/team"
+            style={linkStyle}
+            onMouseOver={(e) => (e.target.style.color = hoverColor)}
+            onMouseOut={(e) => (e.target.style.color = baseColor)}
+          >
+            OUR TEAM
+          </Link>
+          <Link
+              to="/login"
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = hoverColor)}
+              onMouseOut={(e) => (e.target.style.color = baseColor)}
+            >
+              ADMIN
+            </Link>
         </div>
       )}
     </>

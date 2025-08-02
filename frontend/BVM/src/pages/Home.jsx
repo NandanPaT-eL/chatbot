@@ -9,131 +9,145 @@ import ChatbotButton from "../components/ChatbotButton";
 
 const Home = () => {
   return (
-    <div className="font-serif text-gray-900 bg-gradient-to-br from-white via-blue-50 to-white min-h-screen">
+    <div className="font-serif text-gray-900 bg-gradient-to-br from-white via-blue-50 to-white min-h-screen flex flex-col overflow-x-hidden">
+      {/* Navigation Bar */}
       <Navbar />
 
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      {/* Main Content */}
+      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10 leading-relaxed text-justify">
         {/* Hero Section */}
-        <section className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-extrabold border-b-2 border-blue-900 inline-block pb-2 text-blue-900">
+        <section className="text-center space-y-4 mb-10">
+          <h1 className="text-2xl sm:text-3xl font-bold border-b pb-3">
             Center of Excellence for Digital Manufacturing
           </h1>
-          <p className="mt-4 text-[16px] text-gray-700">
+          <p className="text-base sm:text-lg">
             To facilitate the transfer of emerging technologies from the lab to
             the manufacturing floor, enhancing productivity and efficiency.
           </p>
         </section>
 
         {/* Objectives */}
-        <section>
-          <h2 className="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">
-            Objectives
+        <section className="objective-section text-white">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1 text-white">
+            Objectives of Center of Excellence for Digital Manufacturing Lab
           </h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              "Innovation and Research",
-              "Education and Skill Development",
-              "Industry Collaboration",
-              "Technology Transfer",
-              "Sustainable Manufacturing",
-            ].map((obj, idx) => (
+              {
+                title: "Innovation and Research",
+                desc: "To foster an environment where creativity meets technology, enabling the development of cutting-edge solutions in the field of smart manufacturing.",
+              },
+              {
+                title: "Education and Skill Development",
+                desc: "To provide educational programs and training that prepare a new generation of engineers and technicians for the challenges of Industry 4.0.",
+              },
+              {
+                title: "Industry Collaboration",
+                desc: "To collaborate with industry leaders to translate research into practical, scalable industrial solutions.",
+              },
+              {
+                title: "Technology Transfer",
+                desc: "To facilitate the transfer of emerging technologies from the lab to the manufacturing floor, enhancing productivity and efficiency.",
+              },
+              {
+                title: "Sustainable Manufacturing",
+                desc: "To lead in sustainable manufacturing practices that minimize environmental impact and promote circular economy principles.",
+              },
+            ].map(({ title, desc }) => (
               <div
-                key={idx}
-                className="bg-white border-l-4 border-blue-800 p-6 rounded-xl shadow-md hover:shadow-lg transition"
+                key={title}
+                className="bg-[#0e3d45] p-4 rounded-md shadow-md"
               >
-                <h3 className="text-lg font-semibold text-blue-700 mb-2">{obj}</h3>
-                <p className="text-gray-700 text-[15px] leading-relaxed">
-                  {{
-                    "Innovation and Research":
-                      "To foster an environment where creativity meets technology, enabling the development of cutting-edge solutions in the field of smart manufacturing.",
-                    "Education and Skill Development":
-                      "To provide educational programs and training that prepare a new generation of engineers and technicians for the challenges of Industry 4.0.",
-                    "Industry Collaboration":
-                      "To collaborate with industry leaders to translate research into practical, scalable industrial solutions.",
-                    "Technology Transfer":
-                      "To facilitate the transfer of emerging technologies from the lab to the manufacturing floor, enhancing productivity and efficiency.",
-                    "Sustainable Manufacturing":
-                      "To lead in sustainable manufacturing practices that minimize environmental impact and promote circular economy principles.",
-                  }[obj]}
-                </p>
+                <h3 className="text-lg font-semibold mb-2 text-white">
+                  {title}
+                </h3>
+                <p className="text-sm text-white">{desc}</p>
               </div>
             ))}
           </div>
         </section>
 
         {/* About BVM */}
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">
+        <section className="mt-12">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1">
             About BVM
           </h2>
-          <div className="space-y-8">
+          <div className="space-y-6 text-gray-700">
             <div>
-              <h3 className="text-xl font-semibold text-blue-700 underline underline-offset-4">
+              <h3 className="text-lg font-semibold underline underline-offset-4">
                 Mission
               </h3>
-              <p className="mt-2 text-gray-700 text-[15px] leading-relaxed">
-                BVM's mission encompasses several key elements: providing high-quality
-                engineering education, fostering innovation and research, and
-                contributing to societal development through renewable energy
-                research and rural housing development.
+              <p className="text-sm mt-2">
+                BVM's mission encompasses several key elements: providing
+                high-quality engineering education, fostering innovation and
+                research, contributing to societal development through
+                initiatives like renewable energy research and rural housing
+                development, and maintaining governmental recognition and
+                affiliations with esteemed institutions.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-blue-700 underline underline-offset-4">
+              <h3 className="text-lg font-semibold underline underline-offset-4">
                 Vision
               </h3>
-              <p className="mt-2 text-gray-700 text-[15px] leading-relaxed">
+              <p className="text-sm mt-2">
                 BVM's vision revolves around becoming a premier institution in
-                engineering education and research, recognized for its commitment to
-                innovation, academic excellence, and societal impact.
+                engineering education and research, recognized for its
+                commitment to innovation, academic excellence, and societal
+                impact — and maintaining its status as a respected entity within
+                the educational landscape.
               </p>
             </div>
           </div>
         </section>
 
         {/* Patron */}
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">
+        <section className="mt-12 text-white">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1">
             Our Patron
           </h2>
-          <div className="flex flex-col md:flex-row items-center gap-6 bg-blue-900 text-white p-6 rounded-xl shadow-lg">
+          <div className="flex flex-col sm:flex-row items-center gap-6 bg-[#0e3d45] shadow-lg rounded-md p-6">
             <img
               src={jash}
               alt="Mr Pratik Patel"
-              className="w-36 h-36 object-cover border-2 border-white rounded-lg"
+              className="w-32 h-32 sm:w-36 sm:h-36 object-cover border border-white rounded-md max-w-full"
             />
-            <div>
-              <h3 className="text-xl font-semibold">Mr. Pratik Patel</h3>
-              <p className="mt-1">Chairman and Managing Director @ Jash Engineering Ltd.</p>
-              <p className="mt-1">BE in Production, MBA Finance, 32 years of experience.</p>
+            <div className="text-left patron-name">
+              <h3 className="text-lg sm:text-xl font-semibold font-serif">
+                Mr. Pratik Patel
+              </h3>
+              <p className="text-sm mt-1 font-serif">
+                Chairman and Managing Director @ Jash Engineering Ltd.
+              </p>
+              <p className="text-sm mt-1 font-serif">
+                BE in Production, MBA Finance, 32 years of experience.
+              </p>
             </div>
           </div>
         </section>
 
         {/* Partners */}
-        <section className="mt-16">
-          <h2 className="text-2xl font-bold text-blue-800 mb-6 border-b pb-2">
+        <section className="mt-12">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1">
             Partners
           </h2>
-          <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+          <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-6">
             <img
               src={elecon}
               alt="Elecon Engineering"
-              className="h-20 bg-white shadow-md p-2 rounded-md"
+              className="h-16 sm:h-20 border border-gray-300 p-2 max-w-full object-contain"
             />
             <img
               src={fsm}
-              alt="FSM"
-              className="h-20 bg-white shadow-md p-2 rounded-md"
+              alt="IIT Delhi FSM"
+              className="h-16 sm:h-20 border border-gray-300 p-2 max-w-full object-contain"
             />
+            <ChatbotButton />
           </div>
         </section>
+      </main>
 
-        <div className="mt-12 flex justify-center">
-          <ChatbotButton />
-        </div>
-      </div>
-
+      {/* Footer */}
       <Footer />
     </div>
   );
