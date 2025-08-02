@@ -1,0 +1,147 @@
+# Center of Excellence for Digital Manufacturing
+
+## Location
+Birla Vishvakarma Mahavidyalaya (BVM), Gujarat
+
+## Purpose
+To facilitate the transfer of emerging technologies from the lab to the manufacturing floor, enhancing productivity and efficiency.
+
+---
+
+## Focus Areas
+- **Innovation & Research**
+- **Skill Development**
+- **Industry Collaboration**
+- **Sustainability**
+
+---
+
+## Backed By
+- **BVM Institute**
+- **Patron:** Mr. Pratik Patel (CMD, Jash Engineering)
+- **Partners:**
+  - Elecon
+  - IIT Delhi – Foundation for Smart Manufacturing (FSM)
+
+---
+
+## Objectives of the Center of Excellence
+
+### Innovation and Research
+To foster an environment where creativity meets technology, enabling the development of cutting-edge solutions in smart manufacturing.
+
+### Education and Skill Development
+To provide educational programs and training that prepare a new generation of engineers and technicians for the challenges of Industry 4.0.
+
+### Industry Collaboration
+To collaborate with industry leaders to translate research into practical, scalable industrial solutions.
+
+### Technology Transfer
+To facilitate the transfer of emerging technologies from lab to manufacturing floor, boosting productivity and operational efficiency.
+
+### Sustainable Manufacturing
+To lead in sustainable manufacturing practices that reduce environmental impact and promote circular economy principles.
+
+---
+
+## About BVM
+
+### Mission
+BVM's mission encompasses several key elements:
+- Delivering high-quality engineering education
+- Fostering innovation and research
+- Contributing to societal development (e.g., renewable energy, rural housing)
+- Maintaining affiliations and recognition from government and reputed institutes
+
+### Vision
+To become a premier institution in engineering education and research, known for:
+- Innovation
+- Academic excellence
+- Societal impact
+- Strong reputation in the educational landscape
+
+---
+
+# Summer Internship Program 2025
+
+## Overview
+Birla Vishvakarma Mahavidyalaya (BVM), in collaboration with **IIT Delhi - AIA Foundation for Smart Manufacturing**, is offering a **2-month mixed-mode internship** (minimum 4 weeks on-site).
+
+## Facilities for Interns
+- One-to-One Mentorship
+- 3D Printers / Scanner
+- Smart Manufacturing Kit Access
+- IoT Hardware and Software
+
+## Internship Domains
+- Robotics
+- Industrial IoT
+- Extended Reality
+- Digital Twin
+
+---
+
+# Our Projects
+
+## Autonomous Mobile Robot (AMR)
+Autonomous Mobile Robots have emerged as indispensable assets in the realm of digital manufacturing, revolutionizing factory operations. These robots are equipped with:
+- Advanced sensors
+- Navigation systems
+- Decision-making algorithms
+
+They can navigate dynamic environments, interact with machinery, and perform various tasks without human intervention.
+
+## Automated Storage and Retrieval System (AS/RS)
+AS/RS systems are high-tech material handling solutions that automate storage and retrieval processes. Key features include:
+- Robotic control
+- Software-managed inventory
+- Space-efficient layout
+
+These systems optimize warehouse management and streamline logistics.
+
+---
+
+# Our Partners
+
+## Elecon Engineering
+Founded in 1951 by Late Shri Ishwarbhai B. Patel, Elecon Engineering began with conveyor systems for the mining industry. It is now:
+- Asia’s largest **Industrial Gearbox Manufacturer**
+- A leader in **Material Handling Equipment** EPC projects
+- Active across **Asia, Middle East, USA, UK, Europe, and Africa**
+
+## Foundation for Smart Manufacturing (FSM) – AIA – IIT Delhi
+FSM empowers the Indian industry with smart manufacturing solutions by offering:
+- Live lectures and hands-on training
+- Online and remote lab access
+- Self-paced, immersive learning programs
+
+Their mission is to help integrate smart technologies and foster nationwide upskilling.
+
+
+
+---
+
+## MIRAC-PC Retrofit
+
+This comprehensive retrofit transforms the MIRAC-PC Turning Center through a mechanical upgrade replacing stepper motors with high-performance Siemens servo motors and integrating a pneumatic chuck. Simultaneously, a deep system integration configures the Siemens 808D controller with an S7-1200 PLC and robust safety systems – including a safety curtain – establishing a modern control foundation.
+
+The transformation extends into the digital realm with an IIoT platform leveraging ThingWorx and Kepware for real-time data monitoring via OPC UA communication. This enables critical features like predictive maintenance sensors, remote diagnostics, and real-time machine visualization/control. Crucially, a Digital Twin powered by Emulate3D provides live simulation and logic validation. Together, these elements – including OPC UA data exchange and advanced visualization – represent far more than a simple retrofit; they propel the machine into the future of intelligent manufacturing.
+
+---
+
+## TRIAC-PC Retrofit
+
+This comprehensive retrofit transforms the TRIAC-PC Machining Center by replacing traditional stepper motors with Siemens servo motors for improved precision and performance. A pneumatic chuck system is also integrated to enhance workholding efficiency. The Siemens 808D controller is tightly coupled with an S7-1200 PLC and advanced safety mechanisms, including a safety curtain, ensuring high safety and automation standards.
+
+Digitally, the TRIAC-PC is elevated with an IIoT layer using ThingWorx and Kepware, enabling real-time monitoring and OPC UA-based data communication. Features like predictive maintenance, remote diagnostics, and live control/visualization are now embedded into the system. A Digital Twin using Emulate3D supports simulation and logic validation. These upgrades together establish the TRIAC-PC as a cutting-edge intelligent machining solution for Industry 4.0 environments.
+
+# Smart Stations
+
+## Assembly Station
+A hydraulic press specifically designed for assembly operations has been developed. Core control is handled by an OPC UA-enabled DELTA PLC, while precise stroke length feedback is provided by an LVDT. Operator safety is guaranteed with a safety curtain. To enable advanced capabilities, the press has been integrated into an IIoT platform (ThingWorx/Kepware using OPC UA), facilitating real-time data monitoring, predictive maintenance strategy implementation, remote diagnostics, and comprehensive machine visualization and control.
+
+## Manual Inspection Station
+This manual inspection station utilizes a Vernier Caliper interfaced with a PC via USB. The PC is connected to a central server, forming the foundation for its integration into an IIoT platform (ThingWorx/Kepware using OPC UA communication). The platform facilitates critical capabilities including real-time data monitoring, predictive maintenance strategies, remote diagnostics, and machine visualization/control.
+
+## Performance Measuring Station
+This performance measuring station predicts product end-of-life through sensor-driven machine learning. Fitted with requisite instrumentation (load cells, temperature sensors, etc.), it acquires test metrics under simulated operating conditions. As a node within the unified production system, it connects via standard OPC UA communication—identical to other stations—feeding data into centralized ML algorithms for lifespan modeling, reliability analysis, and failure forecasting.
