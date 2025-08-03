@@ -1,0 +1,150 @@
+# Center of Excellence for Digital Manufacturing
+
+## Location
+Birla Vishvakarma Mahavidyalaya (BVM), Gujarat
+
+## Purpose
+To facilitate the transfer of emerging technologies from the lab to the manufacturing floor, enhancing productivity and efficiency.
+
+## Focus Areas
+- Innovation & Research
+- Skill Development
+- Industry Collaboration
+- Sustainability
+
+## Backed By
+- BVM Institute
+- Patron: Mr. Pratik Patel (CMD, Jash Engineering)
+- Partners:
+  - Elecon
+  - IIT Delhi – Foundation for Smart Manufacturing (FSM)
+
+# Objectives of the Center of Excellence
+
+## Innovation and Research
+Foster an environment where creativity meets technology to enable development of cutting-edge solutions in smart manufacturing.
+
+## Education and Skill Development
+Provide educational programs and training to prepare a new generation of engineers and technicians for Industry 4.0.
+
+## Industry Collaboration
+Collaborate with industry leaders to turn research into scalable industrial solutions.
+
+## Technology Transfer
+Enable technology transfer from lab to manufacturing floor to boost operational efficiency.
+
+## Sustainable Manufacturing
+Promote sustainable manufacturing practices that reduce environmental impact and encourage circular economy principles.
+
+# About BVM
+
+## Mission
+- Deliver high-quality engineering education
+- Foster innovation and research
+- Contribute to societal development (renewable energy, rural housing, etc.)
+- Maintain affiliations with reputed institutions
+
+## Vision
+To be a premier institution recognized for:
+- Innovation
+- Academic excellence
+- Societal impact
+- Strong reputation in engineering education
+
+# Summer Internship Program 2025
+
+## Overview
+BVM, in collaboration with IIT Delhi - AIA Foundation for Smart Manufacturing, offers a 2-month mixed-mode internship (minimum 4 weeks on-site).
+
+## Facilities Provided
+- One-to-One Mentorship
+- 3D Printers / Scanner
+- Smart Manufacturing Kit Access
+- IoT Hardware and Software
+
+## Internship Domains
+- Robotics
+- Industrial IoT
+- Extended Reality
+- Digital Twin
+
+# Projects
+
+## Autonomous Mobile Robot (AMR)
+Autonomous Mobile Robots enhance factory operations with:
+- Advanced sensors
+- Navigation systems
+- Decision-making algorithms
+
+They navigate dynamic environments and perform tasks autonomously.
+
+## Automated Storage and Retrieval System (AS/RS)
+High-tech material handling system with:
+- Robotic control
+- Software-managed inventory
+- Space-efficient layout
+
+Improves warehouse and logistics management.
+
+## MIRAC-PC Retrofit
+Upgrade of MIRAC-PC Turning Center with:
+- Siemens servo motors
+- Pneumatic chuck
+- Siemens 808D controller + S7-1200 PLC
+- Safety curtain
+
+Includes IIoT integration with ThingWorx/Kepware, predictive maintenance, remote diagnostics, and Emulate3D-based Digital Twin simulation.
+
+## TRIAC-PC Retrofit
+Upgrade of TRIAC-PC Machining Center with:
+- Siemens servo motors
+- Pneumatic chuck
+- Siemens 808D controller + S7-1200 PLC
+- Safety curtain
+
+Digitally enhanced via ThingWorx/Kepware, predictive maintenance, diagnostics, and Emulate3D-based simulation.
+
+# Smart Stations
+
+## Assembly Station
+Hydraulic press with:
+- DELTA PLC (OPC UA-enabled)
+- LVDT feedback
+- Safety curtain
+
+Integrated with IIoT (ThingWorx/Kepware), supports predictive maintenance, remote diagnostics, and visualization.
+
+## Manual Inspection Station
+Features:
+- Vernier Caliper connected via USB
+- PC connected to central server
+- Integrated with IIoT for monitoring, diagnostics, and visualization
+
+## Performance Measuring Station
+Predicts product end-of-life using:
+- Load cells, temperature sensors
+- Data fed to ML models via OPC UA
+- Supports reliability and failure analysis
+
+# Our Partners
+
+## Elecon Engineering
+Founded in 1951, Elecon is:
+- Asia’s largest Industrial Gearbox Manufacturer
+- A leader in Material Handling Equipment EPC projects
+- Present in Asia, Middle East, USA, UK, Europe, and Africa
+
+## Foundation for Smart Manufacturing (FSM) – IIT Delhi
+FSM offers:
+- Live lectures, hands-on training
+- Online/remote lab access
+- Self-paced immersive learning programs
+
+Aims to integrate smart technologies and promote nationwide upskilling.
+
+## Project Faculty / Team Members
+
+The project is led and supported by a highly qualified academic team:
+
+- Dr. Indrajit Patel — Professor & Principal, Birla Vishwakarma Mahavidyalaya
+- Dr. Vinay J Patel — Professor & HOD, Mechanical Engineering
