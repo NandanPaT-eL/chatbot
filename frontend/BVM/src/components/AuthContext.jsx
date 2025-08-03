@@ -1,3 +1,4 @@
+// src/components/AuthContext.jsx
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
@@ -7,13 +8,29 @@ export const AuthProvider = ({ children }) => {
     sessionStorage.getItem('isAuthenticated') === 'true'
   );
 
-  const login = (username, password) => {
-    if (username === 'admin' && password === 'admin123') {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('isAuthenticated', 'true');
-      return true;
+  const login = async (username, password) => {
+    try {
+      const response = await fetch('http://localhost:4080/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('isAuthenticated', 'true');
+        return { success: true };
+      } else {
+        return { success: false, message: data.message || 'Invalid credentials' };
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      return { success: false, message: 'Server error' };
     }
-    return false;
   };
 
   const logout = () => {

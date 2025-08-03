@@ -44,7 +44,12 @@ const AdminIntern = () => {
         srNo: Date.now(),
       };
 
-      const res = await axios.post("http://localhost:4080/api/students", payload);
+      const res = await axios.post(
+        "http://localhost:4080/api/students",
+        payload,
+        { withCredentials: true }
+      );
+
       console.log("Submitted:", res.data);
       alert("Student data saved successfully!");
 
