@@ -1,41 +1,57 @@
+# RAG/main.py
+
 import os
 import subprocess
 import textwrap
 import warnings
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 
-# Suppress Warnings
+# Suppress warnings
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", category=FutureWarning)
 
-# Load Chroma Vector DB
+# FastAPI App
+app = FastAPI()
+
+# CORS for frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Embedding & Vector DB
 embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 vectordb = Chroma(persist_directory="chroma_store", embedding_function=embedding_model)
 retriever = vectordb.as_retriever(search_kwargs={"k": 3})
 
-# Welcome Message
-print("\nWelcome to the QA Bot for Center of Excellence at BVM")
-print("Birla Vishwakarma Mahavidyalaya, CVM University")
-print("Type 'exit' to quit.\n")
+class QuestionRequest(BaseModel):
+    question: str
 
-# Q&A Loop
-while True:
-    query = input("Ask a question: ").strip()
-    if query.lower() in ["exit", "quit"]:
-        print("Goodbye!")
-        break
+@app.post("/ask")
+def ask_question(payload: QuestionRequest):
+    query = payload.question.strip().lower()
+
+    # Handle farewell messages directly
+    if query in ["bye", "goodbye", "see you", "exit", "quit"]:
+        return {
+            "answer": "Goodbye! If you need assistance again with the Center of Excellence in Digital Manufacturing at BVM, feel free to return anytime."
+        }
 
     try:
         docs = retriever.get_relevant_documents(query)
     except Exception as e:
-        print(f"Error retrieving documents: {e}")
-        continue
+        return {"error": f"Document retrieval error: {str(e)}"}
 
     if not docs:
-        print("No relevant information found.")
-        continue
+        return {"answer": "No relevant information found."}
 
     context = "\n\n".join([doc.page_content for doc in docs])
 
@@ -43,8 +59,9 @@ while True:
         You are a helpful assistant answering questions about the Center of Excellence in Digital Manufacturing
         at Birla Vishwakarma Mahavidyalaya, a constituent college of Charutar Vidya Mandal University.
 
-        Use only the context below to answer.
+        Use only the context below to answer and you are developed by Nandan Patel and Nirjari Bhatt.
 
+        Try to give a complete and helpful answer, but keep your response under 50 words.
         Context:
         {context}
 
@@ -61,18 +78,15 @@ while True:
             stderr=subprocess.PIPE,
             text=True,
         )
-
         stdout, stderr = process.communicate(input=prompt, timeout=60)
 
         if stderr.strip().lower().startswith("error"):
-            print("Error from Ollama:", stderr.strip())
+            return {"error": stderr.strip()}
         else:
-            print("\nAnswer:")
-            print(stdout.strip())
-            print("-" * 60)
+            return {"answer": stdout.strip()}
 
     except subprocess.TimeoutExpired:
-        print("Ollama process timed out.")
         process.kill()
+        return {"error": "Ollama process timed out."}
     except Exception as e:
-        print(f"Failed to query Ollama: {e}")
+        return {"error": f"Ollama failed: {e}"}

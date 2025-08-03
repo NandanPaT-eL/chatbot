@@ -3,32 +3,44 @@ import "./Home.css";
 import jash from "../assets/jash.jpeg";
 import elecon from "../assets/elecon.png";
 import fsm from "../assets/fsm.png";
+import bgImg from "../assets/industry-bg.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChatbotButton from "../components/ChatbotButton";
 
 const Home = () => {
   return (
-    <div className="font-serif text-gray-900 bg-gradient-to-br from-white via-blue-50 to-white min-h-screen flex flex-col overflow-x-hidden">
+    <div className="font-serif text-gray-900 min-h-screen flex flex-col overflow-x-hidden">
       {/* Navigation Bar */}
       <Navbar />
 
-      {/* Main Content */}
-      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10 leading-relaxed text-justify">
-        {/* Hero Section */}
-        <section className="text-center space-y-4 mb-10">
-          <h1 className="text-2xl sm:text-3xl font-bold border-b pb-3">
+      {/* Hero Section with Background Image and Overlay */}
+      <section
+        className="hero-section relative w-full h-[60vh] flex items-center justify-center text-center px-4 sm:px-6"
+        style={{
+          backgroundImage: `url(${bgImg})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/50 z-0" />
+        <div className="z-10 max-w-3xl hero-text">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-4 drop-shadow-md">
             Center of Excellence for Digital Manufacturing
           </h1>
-          <p className="text-base sm:text-lg">
-            To facilitate the transfer of emerging technologies from the lab to
-            the manufacturing floor, enhancing productivity and efficiency.
+          <p className="text-lg sm:text-xl drop-shadow-sm">
+            Facilitating the transfer of emerging technologies to enhance
+            productivity.
           </p>
-        </section>
+        </div>
+      </section>
 
+      {/* Main Content */}
+      <main className="w-full max-w-5xl mx-auto px-4 sm:px-6 py-10 leading-relaxed text-justify">
         {/* Objectives */}
         <section className="objective-section text-white">
-          <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1 text-white">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1">
             Objectives of Center of Excellence for Digital Manufacturing Lab
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -56,9 +68,12 @@ const Home = () => {
             ].map(({ title, desc }) => (
               <div
                 key={title}
-                className="bg-[#0e3d45] p-4 rounded-md shadow-md"
+                className="objective-card"
               >
-                <h3 className="text-lg font-semibold mb-2 text-white">
+                <h3
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: "#ffffff" }}
+                >
                   {title}
                 </h3>
                 <p className="text-sm text-white">{desc}</p>
@@ -101,25 +116,24 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Patron */}
         <section className="mt-12 text-white">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 border-b border-gray-400 pb-1">
             Our Patron
           </h2>
-          <div className="flex flex-col sm:flex-row items-center gap-6 bg-[#0e3d45] shadow-lg rounded-md p-6">
+          <div className="flex flex-col sm:flex-row items-center gap-6 shadow-lg rounded-md p-6 patron-section">
             <img
               src={jash}
               alt="Mr Pratik Patel"
               className="w-32 h-32 sm:w-36 sm:h-36 object-cover border border-white rounded-md max-w-full"
             />
-            <div className="text-left patron-name">
-              <h3 className="text-lg sm:text-xl font-semibold font-serif">
+            <div className="text-left text-white">
+              <h3 className="text-lg sm:text-xl font-semibold font-serif" style={{ color: "#ffffff" }}>
                 Mr. Pratik Patel
               </h3>
-              <p className="text-sm mt-1 font-serif">
+              <p className="text-sm mt-1 font-serif" style={{ color: "#ffffff" }}>
                 Chairman and Managing Director @ Jash Engineering Ltd.
               </p>
-              <p className="text-sm mt-1 font-serif">
+              <p className="text-sm mt-1 font-serif" style={{ color: "#ffffff" }}>
                 BE in Production, MBA Finance, 32 years of experience.
               </p>
             </div>
