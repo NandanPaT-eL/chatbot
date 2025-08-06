@@ -17,7 +17,7 @@ const Projects = () => {
           </h1>
 
           {/* Project 1: AMR */}
-          <div className="md:flex items-center gap-10 bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="md:flex items-center gap-10 bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <div className="md:w-2/3">
               <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
                 Autonomous Mobile Robot
@@ -44,7 +44,7 @@ const Projects = () => {
           </div>
 
           {/* Project 2: AS/RS */}
-          <div className="md:flex items-center gap-10 flex-row-reverse bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="md:flex items-center gap-10 flex-row-reverse bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <div className="md:w-2/3">
               <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
                 Automated Storage and Retrieval System (AS/RS)
@@ -71,7 +71,7 @@ const Projects = () => {
           </div>
 
           {/* Project 3: MIRAC-PC */}
-          <div className="bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
               Retrofitting MIRAC-PC Turning Center
             </h2>
@@ -94,7 +94,7 @@ const Projects = () => {
           </div>
 
           {/* Project 4: TRIAC-PC */}
-          <div className="bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
               Retrofitting TRIAC-PC Vertical Milling Machine
             </h2>
@@ -116,7 +116,7 @@ const Projects = () => {
           </div>
 
           {/* Project 5: Assembly Station */}
-          <div className="bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
               Assembly Station
             </h2>
@@ -134,7 +134,7 @@ const Projects = () => {
           </div>
 
           {/* Project 6: Manual Inspection Station */}
-          <div className="bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
               Manual Inspection Station
             </h2>
@@ -150,7 +150,7 @@ const Projects = () => {
           </div>
 
           {/* Project 7: Performance Measuring Station */}
-          <div className="bg-[#0e3d45] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
+          <div className="bg-[#1f2937] rounded-3xl shadow-md hover:shadow-xl transition duration-300 p-8 mb-16 text-white">
             <h2 className="text-3xl font-semibold mb-4 text-white" style={{ color: "#ffffff" }}>
               Performance Measuring Station
             </h2>

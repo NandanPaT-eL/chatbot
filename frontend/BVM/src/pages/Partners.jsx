@@ -17,7 +17,7 @@ const Partners = () => {
           </h1>
 
           {/* Partner 1 */}
-          <div className="md:flex items-center gap-10 bg-[linear-gradient(145deg,#0e3d45,#11535c)] rounded-3xl shadow-md p-8 mb-16 text-white">
+          <div className="md:flex items-center gap-10 bg-[#1f2937] rounded-3xl shadow-md p-8 mb-16 text-white">
             <div className="md:w-2/3">
               <h2 className="text-3xl font-semibold mb-4" style={{ color: "#ffffff" }}>
                 Elecon Engineering
@@ -44,7 +44,7 @@ const Partners = () => {
           </div>
 
           {/* Partner 2 */}
-          <div className="md:flex items-center gap-10 flex-row-reverse bg-[linear-gradient(145deg,#0e3d45,#11535c)] rounded-3xl shadow-md p-8 text-white">
+          <div className="md:flex items-center gap-10 flex-row-reverse bg-[#1f2937] rounded-3xl shadow-md p-8 text-white">
             <div className="md:w-2/3">
               <h2 className="text-3xl font-semibold mb-4 parthead" style={{ color: "#ffffff" }}>
                 Foundation for Smart Manufacturing - AIA - IIT Delhi

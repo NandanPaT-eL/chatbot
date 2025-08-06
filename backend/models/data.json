@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Dr. Indrajit Patel",
+    "role": "Professor & Principal, Birla Vishwakarma Mahavidyalaya",
+    "photo": "indrajit.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Dr. Vinay J Patel",
+    "role": "Professor & HOD, Mechanical Engineering",
+    "photo": "vinay.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Kamlesh Dhansukhlal Bhatt",
+    "role": "Assistant Professor, Production Engineering",
+    "photo": "kdbhatt.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Alpeshkumar Damor",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "alpesh.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Vijaypratap Singh",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "vijay.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Dr. Ashish Maheshkumar Thakkar",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "ashish.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Dhara Pradip Trivedi",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "dhara.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Kinjal A. Patel",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "kinjal.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Rakeshkumar Barot",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "rakesh.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Dr. Hardik S. Beravala",
+    "role": "Assistant Professor, Production Engineering",
+    "photo": "hardik.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Priyank Bharatbhai Machhi",
+    "role": "Adhoc faculty, Mechanical Engineering",
+    "photo": "priyank.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Dr. Dipakkumar M Patel",
+    "role": "Professor, Electronics",
+    "photo": "dipak.png",
+    "type": "faculty"
+  },
+  {
+    "name": "Dr. Mehfuza S. Holia",
+    "role": "Assistant Professor, Electronics",
+    "photo": "mehfuza.png",
+    "type": "faculty"
+  },
+  {
+    "name": "Dr. Anishbhai A. Vahora",
+    "role": "Assistant Professor, Electronics & Communication",
+    "photo": "anish.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Prof. Vishal Pandya",
+    "role": "Assistant Professor, Mechanical Engineering",
+    "photo": "vishal.jpg",
+    "type": "faculty"
+  },
+  {
+    "name": "Mr. Ashutosh Babras",
+    "role": "Robotics, Mechatronics, IIoT",
+    "photo": "ashutosh.jpg",
+    "type": "researcher"
+  },
+  {
+    "name": "Mr. Rugnesh Vora",
+    "role": "Automation, Robotics, IIoT, Embedded System",
+    "photo": "rugnesh.jpg",
+    "type": "researcher"
+  },
+  {
+    "name": "Mr. Kush Patel",
+    "role": "Robotics and automation, AI/ML",
+    "photo": "kush.jpeg",
+    "type": "researcher"
+  }
+]

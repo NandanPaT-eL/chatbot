@@ -1,14 +1,29 @@
-import { useEffect, useRef, useState } from 'react';
-import { Send } from 'lucide-react';
-import axios from 'axios';
+import { useEffect, useRef, useState } from "react";
+import { Send, Mic } from "lucide-react";
+import axios from "axios";
 
 export default function ChatbotWidget() {
   const [showChat, setShowChat] = useState(false);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [waiting, setWaiting] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [listening, setListening] = useState(false);
   const chatRef = useRef(null);
+const [hasGreeted, setHasGreeted] = useState(false);
+useEffect(() => {
+  if (showChat && !hasGreeted) {
+    setMessages((prev) => [
+      ...prev,
+      {
+        sender: "bot",
+        text: "👋 Hello! I'm CoE Bot. Ask me anything about Digital Manufacturing at BVM.",
+      },
+    ]);
+    setHasGreeted(true);
+  }
+}, [showChat, hasGreeted]);
+
 
   const toggleChat = () => setShowChat(!showChat);
 
@@ -16,46 +31,117 @@ export default function ChatbotWidget() {
     e.preventDefault();
     if (!input.trim() || waiting) return;
 
-    const userMessage = { sender: 'user', text: input };
-    setMessages((prev) => [...prev, userMessage, { sender: 'bot', text: '...', typing: true }]);
-    setInput('');
+    const userMessage = { sender: "user", text: input };
+    setMessages((prev) => [
+      ...prev,
+      userMessage,
+      { sender: "bot", text: "...", typing: true },
+    ]);
+    setInput("");
     setWaiting(true);
 
     try {
-      const res = await axios.post('http://localhost:8000/ask', { question: input });
-      setMessages((prev) =>
-        prev.filter((msg) => !msg.typing)
-      );
-      setMessages((prev) => [...prev, { sender: 'bot', text: res.data.answer }]);
+      const res = await axios.post("http://localhost:8000/ask", {
+        question: input,
+      });
+      setMessages((prev) => prev.filter((msg) => !msg.typing));
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: res.data.answer },
+      ]);
     } catch (err) {
-      setMessages((prev) =>
-        prev.filter((msg) => !msg.typing)
-      );
-      setMessages((prev) => [...prev, { sender: 'bot', text: 'Error: Failed to get response.' }]);
+      setMessages((prev) => prev.filter((msg) => !msg.typing));
+      setMessages((prev) => [
+        ...prev,
+        { sender: "bot", text: "Error: Failed to get response." },
+      ]);
     }
 
     setWaiting(false);
   };
 
   useEffect(() => {
-    chatRef.current?.scrollTo({ top: chatRef.current.scrollHeight, behavior: 'smooth' });
+    chatRef.current?.scrollTo({
+      top: chatRef.current.scrollHeight,
+      behavior: "smooth",
+    });
   }, [messages]);
 
   useEffect(() => {
-    const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    const darkMode =
+      window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
     setIsDark(darkMode.matches);
 
     const listener = (e) => setIsDark(e.matches);
-    darkMode.addEventListener('change', listener);
-    return () => darkMode.removeEventListener('change', listener);
+    darkMode.addEventListener("change", listener);
+    return () => darkMode.removeEventListener("change", listener);
   }, []);
+
+  const handleMicClick = () => {
+    if (
+      !("webkitSpeechRecognition" in window || "SpeechRecognition" in window)
+    ) {
+      alert("Your browser does not support speech recognition.");
+      return;
+    }
+
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+    setListening(true);
+
+    recognition.onresult = async (event) => {
+      const transcript = event.results[0][0].transcript;
+
+      const userMessage = { sender: "user", text: transcript };
+      setMessages((prev) => [
+        ...prev,
+        userMessage,
+        { sender: "bot", text: "...", typing: true },
+      ]);
+      setWaiting(true);
+
+      try {
+        const res = await axios.post("http://localhost:8000/ask", {
+          question: transcript,
+        });
+        setMessages((prev) => prev.filter((msg) => !msg.typing));
+        setMessages((prev) => [
+          ...prev,
+          { sender: "bot", text: res.data.answer },
+        ]);
+      } catch (err) {
+        setMessages((prev) => prev.filter((msg) => !msg.typing));
+        setMessages((prev) => [
+          ...prev,
+          { sender: "bot", text: "Error: Failed to get response." },
+        ]);
+      }
+
+      setWaiting(false);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error", event);
+      setListening(false);
+    };
+
+    recognition.onend = () => {
+      setListening(false);
+    };
+  };
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
       <button
         className="bg-blue-600 text-white p-3 rounded-full shadow-lg md:hidden"
         onClick={toggleChat}
-        style={{ display: showChat ? 'none' : 'block' }}
+        style={{ display: showChat ? "none" : "block" }}
       >
         💬
       </button>
@@ -63,28 +149,42 @@ export default function ChatbotWidget() {
       {showChat && (
         <div
           className={`w-[90vw] max-w-md h-[75vh] md:h-[500px] rounded-lg shadow-xl flex flex-col overflow-hidden border
-            ${isDark ? 'bg-gray-900 text-white border-gray-700' : 'bg-white text-black border-gray-300'}`}
+            ${
+              isDark
+                ? "bg-[#1e1e1e] text-white border-gray-700"
+                : "bg-white text-black border-gray-300"
+            }`}
         >
-          <div className={`px-4 py-2 font-semibold flex justify-between items-center ${
-            isDark ? 'bg-gray-800 text-white' : 'bg-blue-600 text-white'
-          }`}>
+          {/* Chat Header */}
+          <div
+            className={`px-4 py-2 font-semibold flex justify-between items-center ${
+              isDark ? "bg-[#2d2d2d] text-white" : "bg-blue-600 text-white"
+            }`}
+          >
             <span>Ask CoE Bot</span>
-            <button onClick={toggleChat} className="text-white">✕</button>
+            <button onClick={toggleChat} className="text-white">
+              ✕
+            </button>
           </div>
 
+          {/* Chat messages */}
           <div
             ref={chatRef}
             className={`flex-1 p-4 space-y-2 overflow-y-auto ${
-              isDark ? 'bg-gray-800' : 'bg-gray-50'
+              isDark ? "bg-[#1e1e1e]" : "bg-[#f9f9f9]"
             }`}
           >
             {messages.map((msg, idx) => (
               <div
                 key={idx}
                 className={`p-3 rounded-lg max-w-xs md:max-w-sm text-sm whitespace-pre-line ${
-                  msg.sender === 'user'
-                    ? `${isDark ? 'bg-blue-800' : 'bg-blue-100'} self-end ml-auto`
-                    : `${isDark ? 'bg-gray-700' : 'bg-gray-200'} self-start mr-auto`
+                  msg.sender === "user"
+                    ? `${
+                        isDark ? "bg-blue-800" : "bg-blue-100"
+                      } self-end ml-auto`
+                    : `${
+                        isDark ? "bg-gray-700" : "bg-gray-200"
+                      } self-start mr-auto`
                 }`}
               >
                 {msg.typing ? (
@@ -100,20 +200,40 @@ export default function ChatbotWidget() {
             ))}
           </div>
 
-          <form onSubmit={handleSubmit} className={`p-2 border-t ${isDark ? 'border-gray-700 bg-gray-900' : 'border-gray-200 bg-white'}`}>
+          {/* Input area */}
+          <form
+            onSubmit={handleSubmit}
+            className={`p-2 border-t ${
+              isDark
+                ? "border-gray-700 bg-[#1e1e1e]"
+                : "border-gray-100 bg-white"
+            }`}
+          >
             <div className="flex gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 disabled={waiting}
-                placeholder={waiting ? 'Waiting for response...' : 'Type your question'}
+                placeholder={
+                  waiting ? "Waiting for response..." : "Type or use mic"
+                }
                 className={`flex-1 p-2 rounded-md border focus:outline-none focus:ring-2 ${
                   isDark
-                    ? 'bg-gray-800 text-white border-gray-600 focus:ring-blue-500'
-                    : 'border-gray-300 focus:ring-blue-400'
+                    ? "bg-[#2e2e2e] text-white border-gray-600 focus:ring-blue-500"
+                    : "bg-white border-gray-300 focus:ring-blue-400"
                 }`}
               />
+              <button
+                type="button"
+                onClick={handleMicClick}
+                className={`px-3 py-2 rounded-md ${
+                  listening ? "bg-red-600" : "bg-gray-300 hover:bg-gray-400"
+                } text-black`}
+                title="Speak"
+              >
+                <Mic size={16} />
+              </button>
               <button
                 type="submit"
                 disabled={waiting || !input.trim()}

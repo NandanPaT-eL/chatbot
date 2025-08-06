@@ -9,7 +9,7 @@ const Footer = () => {
       <div>© 2025 BVM CoE DM. All Rights Reserved.</div>
       <div className="flex justify-center gap-4">
         <Link to="https://www.linkedin.com/company/iitdaiafsm/" className="hover:underline">LinkedIn</Link>
-        <Link to="#" className="hover:underline">YouTube</Link>
+        <Link to="https://youtu.be/Fl9z8rEJdvs?si=Al2DgGOBORzkk4KY" className="hover:underline">YouTube</Link>
       </div>
     </footer>
   );

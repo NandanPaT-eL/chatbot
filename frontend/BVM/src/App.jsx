@@ -7,6 +7,7 @@ import Partners from './pages/Partners';
 import Team from './pages/Team';
 import AdminIntern from './pages/AdminIntern';
 import Login from './pages/Login';
+import AdminFaculty from './pages/AdminFaculty';
 import ProtectedRoute from '../src/components/ProtectedRoute.jsx';
 
 const App = () => {
@@ -24,6 +25,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminIntern />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/adminFaculty'
+          element={
+            <ProtectedRoute>
+              <AdminFaculty />
             </ProtectedRoute>
           }
         />
