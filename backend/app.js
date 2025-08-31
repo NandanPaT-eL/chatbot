@@ -1,32 +1,19 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import session from "express-session";
-import mongoose from "mongoose";
-import path from "path";
-import { fileURLToPath } from "url";
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const session = require("express-session");
+const mongoose = require("mongoose");
+const path = require("path");
 
 dotenv.config();
 
-// Fix __dirname for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
 // Route imports
-import studentRoutes from "./routes/Internship.route.js";
-import authRoutes from "./routes/auth.route.js";
-import teamRoutes from "./routes/team.route.js";
-import projectRoutes from "./routes/Project.route.js";
+const studentRoutes = require("./routes/Internship.route");
+const authRoutes = require("./routes/auth.route");
+const teamRoutes = require("./routes/team.route");
+const projectRoutes = require("./routes/Project.route");
 
 const app = express();
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
 
 // CORS configuration
 const allowedOrigins = [process.env.VITE_FRONTEND_URL];
@@ -47,7 +34,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session configuration
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "supersecret",
@@ -55,15 +41,15 @@ app.use(
     saveUninitialized: false,
     cookie: {
       httpOnly: true,
-      secure: false, // Set true if frontend is HTTPS
+      secure: false,
       maxAge: 1000 * 60 * 60, // 1 hour
     },
   })
 );
 
-// Serve static files from backend/public
-app.use("/team", express.static(path.join(__dirname, "public/team")));
-app.use("/projects", express.static(path.join(__dirname, "public/projects")));
+// Static file serving (so frontend can directly access team/project images)
+app.use("/team", express.static(path.join(__dirname, "../frontend/BVM/public/team")));
+app.use("/projects", express.static(path.join(__dirname, "../frontend/BVM/public/projects")));
 
 // Routes
 app.use("/api/students", studentRoutes);
@@ -82,5 +68,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message || "Internal Server Error" });
 });
 
-// Export app for Vercel serverless
-export default app;
+module.exports = app;
