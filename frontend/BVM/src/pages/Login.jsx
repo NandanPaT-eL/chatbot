@@ -4,6 +4,10 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from "../assets/CoDM.png";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -35,7 +39,7 @@ const Login = () => {
     try {
       if (isRegister) {
         const res = await axios.post(
-          "http://localhost:4080/auth/register",
+          `${API}/auth/register`,
           {
             username,
             password,

@@ -2,6 +2,8 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
 
 export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -10,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:4080/auth/login', {
+      const response = await fetch(`${API}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -3,6 +3,10 @@ import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
 import { CSVLink } from "react-csv";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 export default function AdminIntern() {
   const [interns, setInterns] = useState([]);
   const [expandedBatch, setExpandedBatch] = useState(null);
@@ -28,7 +32,7 @@ export default function AdminIntern() {
 
   const fetchInterns = async () => {
     try {
-      const res = await axios.get("http://localhost:4080/api/students");
+      const res = await axios.get(`${API}/api/students`);
       setInterns(res.data);
     } catch (err) {
       console.error("Error fetching interns:", err.message);
@@ -38,7 +42,7 @@ export default function AdminIntern() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this intern?")) return;
     try {
-      await axios.delete(`http://localhost:4080/api/students/${id}`);
+      await axios.delete(`${API}/api/students/${id}`);
       fetchInterns();
     } catch (err) {
       console.error("Delete error:", err.message);
@@ -59,7 +63,7 @@ export default function AdminIntern() {
     )
       return;
     try {
-      await axios.post("http://localhost:4080/api/students", newIntern);
+      await axios.post(`${API}/api/students`, newIntern);
       setNewIntern({ name: "", college: "", domain: "", batch: "" });
       setShowAddForm(false);
       fetchInterns();
@@ -80,7 +84,7 @@ export default function AdminIntern() {
   const handleUpdateIntern = async () => {
     try {
       await axios.put(
-        `http://localhost:4080/api/students/${editingInternId}`,
+        `${API}/api/students/${editingInternId}`,
         editInternData
       );
       setEditingInternId(null);

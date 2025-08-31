@@ -4,6 +4,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 const Team = () => {
   const [faculty, setFaculty] = useState([]);
   const [researchers, setResearchers] = useState([]);
@@ -12,7 +16,7 @@ const Team = () => {
   useEffect(() => {
     const fetchTeam = async () => {
       try {
-        const response = await axios.get("http://localhost:4080/api/team");
+        const response = await axios.get(`${API}/api/team`);
         const data = response.data;
 
         setFaculty(data.filter((member) => member.type === "faculty"));

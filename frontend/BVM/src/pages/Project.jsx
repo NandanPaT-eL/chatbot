@@ -5,6 +5,10 @@ import ChatbotButton from "../components/ChatbotButton";
 import { FaChevronDown } from "react-icons/fa";
 import axios from "axios";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 const Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,7 +21,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:4080/api/projects");
+        const res = await axios.get(`${API}/api/projects`);
         setProjects(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error("Error fetching projects:", err);

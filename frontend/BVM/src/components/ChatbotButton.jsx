@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { Send, Mic } from "lucide-react";
 import axios from "axios";
 
+const CAPI = import.meta.env.CHATBOT_API_BACKEND;
+
 export default function ChatbotWidget() {
   const [showChat, setShowChat] = useState(false);
   const [input, setInput] = useState("");
@@ -41,7 +43,7 @@ useEffect(() => {
     setWaiting(true);
 
     try {
-      const res = await axios.post("http://localhost:8000/ask", {
+      const res = await axios.post(`${CAPI}/ask`, {
         question: input,
       });
       setMessages((prev) => prev.filter((msg) => !msg.typing));
@@ -107,7 +109,7 @@ useEffect(() => {
       setWaiting(true);
 
       try {
-        const res = await axios.post("http://localhost:8000/ask", {
+        const res = await axios.post(`${CAPI}/ask`, {
           question: transcript,
         });
         setMessages((prev) => prev.filter((msg) => !msg.typing));

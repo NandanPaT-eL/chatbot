@@ -12,6 +12,7 @@
     "@azure/storage-blob": "^12.28.0",
     "axios": "^1.11.0",
     "bcrypt": "^6.0.0",
+    "cloudinary": "^1.21.0",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
     "express": "^5.1.0",

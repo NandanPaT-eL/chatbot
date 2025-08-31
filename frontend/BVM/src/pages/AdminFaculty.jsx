@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 export default function AdminFaculty() {
   const [faculty, setFaculty] = useState([]);
   const [search, setSearch] = useState("");
@@ -25,7 +29,7 @@ export default function AdminFaculty() {
 
   const fetchFaculty = async () => {
     try {
-      const res = await axios.get("http://localhost:4080/api/team");
+      const res = await axios.get(`${API}/api/team`);
       setFaculty(res.data);
     } catch (err) {
       console.error("Error fetching team:", err.message);
@@ -44,7 +48,7 @@ export default function AdminFaculty() {
     formData.append("photo", file);
 
     try {
-      await axios.post("http://localhost:4080/api/team", formData, {
+      await axios.post(`${API}/api/team`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setNewFaculty({ name: "", role: "", type: "faculty", file: null });
@@ -58,7 +62,7 @@ export default function AdminFaculty() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this record?")) return;
     try {
-      await axios.delete(`http://localhost:4080/api/team/${id}`);
+      await axios.delete(`${API}/api/team/${id}`);
       fetchFaculty();
     } catch (err) {
       console.error("Delete error:", err.message);
@@ -76,7 +80,7 @@ export default function AdminFaculty() {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:4080/api/team/${editingId}`, editFacultyData);
+      await axios.put(`${API}/api/team/${editingId}`, editFacultyData);
       setEditingId(null);
       fetchFaculty();
     } catch (err) {
@@ -185,7 +189,6 @@ export default function AdminFaculty() {
     <div className="min-h-screen bg-gray-100">
       <AdminNavbar />
       <div className="max-w-6xl mx-auto px-6 py-10 space-y-12">
-
         {/* Dashboard Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white shadow p-6 rounded text-center">
@@ -204,9 +207,7 @@ export default function AdminFaculty() {
 
         {/* Search + Add */}
         <div className="flex justify-between items-center mb-6 mt-10">
-          <h1 className="text-2xl font-bold text-[#154360]">
-            Team Management
-          </h1>
+          <h1 className="text-2xl font-bold text-[#154360]">Team Management</h1>
           <div className="flex gap-4">
             <input
               type="text"
@@ -227,9 +228,7 @@ export default function AdminFaculty() {
         {/* Add Form */}
         {showAddForm && (
           <div className="bg-white p-6 rounded shadow-md mb-6">
-            <h3 className="text-xl font-semibold mb-4 text-[#154360]">
-              Add New Member
-            </h3>
+            <h3 className="text-xl font-semibold mb-4 text-[#154360]">Add New Member</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"

@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 export default function AdminProjects() {
   const [projects, setProjects] = useState([]);
   const [search, setSearch] = useState("");
@@ -26,7 +30,7 @@ export default function AdminProjects() {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:4080/api/projects");
+      const res = await axios.get(`${API}/api/projects`);
       const data = Array.isArray(res.data) ? res.data : res.data.projects;
       setProjects(data || []);
     } catch (err) {
@@ -46,7 +50,7 @@ export default function AdminProjects() {
     formData.append("photo", photo);
 
     try {
-      const res = await axios.post("http://localhost:4080/api/projects", formData, {
+      const res = await axios.post(`${API}/api/projects`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setProjects((prev) => [...prev, res.data]);
@@ -60,7 +64,7 @@ export default function AdminProjects() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this project?")) return;
     try {
-      await axios.delete(`http://localhost:4080/api/projects/${id}`);
+      await axios.delete(`${API}/api/projects/${id}`);
       setProjects((prev) => prev.filter((p) => p._id !== id));
     } catch (err) {
       console.error("Delete error:", err.message);
@@ -86,7 +90,7 @@ export default function AdminProjects() {
 
     try {
       const res = await axios.put(
-        `http://localhost:4080/api/projects/${editingId}`,
+        `${API}/api/projects/${editingId}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

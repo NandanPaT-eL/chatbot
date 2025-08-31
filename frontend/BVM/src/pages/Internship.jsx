@@ -5,6 +5,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChatbotButton from "../components/ChatbotButton";
 
+// Instead of process.env.REACT_API_BACKEND
+const API = import.meta.env.VITE_REACT_API_BACKEND;
+
+
 const Internship = () => {
   const [openSection, setOpenSection] = useState(null);
   const [studentGroups, setStudentGroups] = useState([]);
@@ -14,7 +18,7 @@ const Internship = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:4080/api/students/grouped")
+    fetch(`${API}/api/students/grouped`)
       .then((res) => res.json())
       .then((data) => setStudentGroups(data))
       .catch((err) => console.error("Failed to fetch student groups", err));
