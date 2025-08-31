@@ -16,7 +16,7 @@ const projectRoutes = require("./routes/Project.route");
 const app = express();
 
 // CORS configuration
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = [process.env.VITE_FRONTEND_URL];
 app.use(
   cors({
     origin: function (origin, callback) {
