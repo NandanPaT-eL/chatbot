@@ -33,24 +33,38 @@ const createTeamMember = async (req, res) => {
 };
 
 // PUT
+// PUT (update)
 const updateTeamMember = async (req, res) => {
   try {
     const { name, role, type } = req.body;
     const id = req.params.id;
 
-    const photo = name.toLowerCase().replace(/ /g, "") + ".jpg";
+    // Find existing member
+    const member = await Team.findById(id);
+    if (!member) {
+      return res.status(404).json({ message: "Member not found" });
+    }
+
+    let photo = member.photo; // keep old photo by default
+
+    // If a new file was uploaded, replace the photo
+    if (req.file) {
+      photo = req.file.filename;
+    }
 
     const updated = await Team.findByIdAndUpdate(
       id,
       { name, role, type, photo },
       { new: true }
     );
+
     res.status(200).json(updated);
   } catch (err) {
     console.error("Update error:", err);
     res.status(500).json({ message: "Failed to update team member" });
   }
 };
+
 
 // DELETE
 const deleteTeamMember = async (req, res) => {
