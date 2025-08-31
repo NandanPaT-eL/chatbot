@@ -8,6 +8,7 @@ import Team from './pages/Team';
 import AdminIntern from './pages/AdminIntern';
 import Login from './pages/Login';
 import AdminFaculty from './pages/AdminFaculty';
+import AdminProjects from './pages/AdminProjects';
 import ProtectedRoute from '../src/components/ProtectedRoute.jsx';
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/partners' element={<Partners />} />
         <Route path='/team' element={<Team />} />
         <Route path='/login' element={<Login />} />
+        
         <Route
           path='/admin'
           element={
@@ -33,6 +35,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AdminFaculty />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/adminProjects'
+          element={
+            <ProtectedRoute>
+              <AdminProjects />
             </ProtectedRoute>
           }
         />

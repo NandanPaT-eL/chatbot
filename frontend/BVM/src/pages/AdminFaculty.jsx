@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-} from "recharts";
 
 export default function AdminFaculty() {
   const [faculty, setFaculty] = useState([]);
@@ -87,11 +76,7 @@ export default function AdminFaculty() {
 
   const handleUpdate = async () => {
     try {
-      const photo = editFacultyData.name.toLowerCase().replace(/ /g, "") + ".jpg";
-      await axios.put(`http://localhost:4080/api/team/${editingId}`, {
-        ...editFacultyData,
-        photo,
-      });
+      await axios.put(`http://localhost:4080/api/team/${editingId}`, editFacultyData);
       setEditingId(null);
       fetchFaculty();
     } catch (err) {
@@ -110,23 +95,6 @@ export default function AdminFaculty() {
   const totalMembers = faculty.length;
   const facultyCount = facultyList.length;
   const researcherCount = researcherList.length;
-
-  const roleCounts = faculty.reduce((acc, member) => {
-    acc[member.role] = (acc[member.role] || 0) + 1;
-    return acc;
-  }, {});
-
-  const roleData = Object.entries(roleCounts).map(([role, count]) => ({
-    role,
-    count,
-  }));
-
-  const pieData = [
-    { name: "Faculty", value: facultyCount },
-    { name: "Researchers", value: researcherCount },
-  ];
-
-  const COLORS = ["#1F618D", "#76D7C4"];
 
   const renderTable = (list, title) => (
     <div className="overflow-x-auto bg-white shadow rounded-lg">
@@ -231,48 +199,6 @@ export default function AdminFaculty() {
           <div className="bg-white shadow p-6 rounded text-center">
             <h2 className="text-3xl font-bold text-[#154360]">{researcherCount}</h2>
             <p className="text-gray-600 mt-1">Researchers</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white shadow p-6 rounded">
-            <h3 className="text-lg font-semibold text-[#154360] mb-4">
-              Team Distribution
-            </h3>
-            <ResponsiveContainer width="100%" height={250}>
-              <PieChart>
-                <Pie
-                  data={pieData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={80}
-                  label
-                  dataKey="value"
-                >
-                  {pieData.map((entry, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={COLORS[index % COLORS.length]}
-                    />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="bg-white shadow p-6 rounded">
-            <h3 className="text-lg font-semibold text-[#154360] mb-4">
-              Members by Role
-            </h3>
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={roleData}>
-                <XAxis dataKey="role" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="count" fill="#1F618D" />
-              </BarChart>
-            </ResponsiveContainer>
           </div>
         </div>
 

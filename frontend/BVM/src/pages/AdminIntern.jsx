@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AdminNavbar from "../components/AdminNavbar";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-} from "recharts";
 import { CSVLink } from "react-csv";
 
 export default function AdminIntern() {
@@ -117,29 +106,6 @@ export default function AdminIntern() {
   const uniqueBatches = [...new Set(interns.map((i) => i.batch))];
   const uniqueDomains = [...new Set(interns.map((i) => i.domain))];
 
-  const domainData = Object.entries(
-    interns.reduce((acc, { domain }) => {
-      acc[domain] = (acc[domain] || 0) + 1;
-      return acc;
-    }, {})
-  ).map(([domain, count]) => ({ name: domain, value: count }));
-
-  const batchData = Object.entries(
-    interns.reduce((acc, { batch }) => {
-      acc[batch] = (acc[batch] || 0) + 1;
-      return acc;
-    }, {})
-  ).map(([batch, count]) => ({ name: batch, value: count }));
-
-  const COLORS = [
-    "#154360",
-    "#2980B9",
-    "#7FB3D5",
-    "#85C1E9",
-    "#AED6F1",
-    "#D6EAF8",
-  ];
-
   const [selectedFields, setSelectedFields] = useState([
     "name",
     "college",
@@ -160,23 +126,6 @@ export default function AdminIntern() {
     });
     return filtered;
   });
-
-  const handlePDFDownload = () => {
-    const { jsPDF } = require("jspdf");
-    require("jspdf-autotable");
-    const doc = new jsPDF();
-
-    const headers = selectedFields.map((field) => field.toUpperCase());
-    const rows = interns.map((intern) => selectedFields.map((f) => intern[f]));
-
-    doc.text("Interns Report", 14, 15);
-    doc.autoTable({
-      head: [headers],
-      body: rows,
-      startY: 20,
-    });
-    doc.save(`interns_${new Date().toISOString()}.pdf`);
-  };
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -201,44 +150,6 @@ export default function AdminIntern() {
               {uniqueDomains.length}
             </h2>
             <p className="text-gray-500 mt-1">Unique Domains</p>
-          </div>
-        </div>
-
-        {/* === Graphs Section === */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4 text-[#154360]">
-              Interns by Domain
-            </h3>
-            <ResponsiveContainer width="100%" height={250}>
-              <PieChart>
-                <Pie
-                  data={domainData}
-                  dataKey="value"
-                  nameKey="name"
-                  outerRadius={90}
-                >
-                  {domainData.map((_, index) => (
-                    <Cell key={index} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-4 text-[#154360]">
-              Interns by Batch
-            </h3>
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={batchData}>
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="value" fill="#154360" />
-              </BarChart>
-            </ResponsiveContainer>
           </div>
         </div>
 
@@ -319,7 +230,7 @@ export default function AdminIntern() {
           </div>
         </div>
 
-        {/* === Add Intern Form (Glassmorphic) === */}
+        {/* === Add Intern Form === */}
         {showAddForm && (
           <div className="backdrop-blur-md bg-white/30 border border-white/20 p-6 rounded-xl shadow-lg max-w-xl mx-auto mb-6">
             <h3 className="text-xl font-semibold text-[#154360] mb-4">

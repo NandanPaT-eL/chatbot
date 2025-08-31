@@ -19,9 +19,15 @@ export default function AdminNavbar() {
         </button>
         <button
           className="text-[#154360] font-semibold hover:bg-[#EAF2F8] px-4 py-2 rounded transition-all"
-          onClick={() => navigate("../adminFaculty")}
+          onClick={() => navigate("/adminFaculty")}
         >
           Faculty
+        </button>
+        <button
+          className="text-[#154360] font-semibold hover:bg-[#EAF2F8] px-4 py-2 rounded transition-all"
+          onClick={() => navigate("/adminProjects")}
+        >
+          Projects
         </button>
         <button
           className="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded"
