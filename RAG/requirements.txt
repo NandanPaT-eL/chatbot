@@ -4,10 +4,6 @@ uvicorn[standard]==0.23.2
 python-dotenv==1.0.0
 pydantic==2.6.0
 
-# Speech recognition
-SpeechRecognition==3.9.0
-PyAudio==0.2.13
-
 # LangChain and related packages (lightweight)
 langchain==0.1.0
 langchain-huggingface==0.1.0
